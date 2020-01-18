@@ -39,6 +39,8 @@ userKeyPress = function () {
         document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
     }
     randomWord();
+
+    
   
 }
 //variable declaration for the game scores
