@@ -1,5 +1,8 @@
 console.log("Thank you for playing!");
+
+//creating variables
 lettersUsed =[];
+
 playGame = () => {
     randomWord();
     userKeyPress();
@@ -29,7 +32,17 @@ randomWord = () => {
     }
 
     var remainingLetters = word.length;
-    console.log("remaining letters to be guessed: " + remainingLetters);
+    //console.log("remaining letters to be guessed: " + remainingLetters);
+    if (remainingLetters>0 && remainingLetters !== 0) {
+        for(var j=0; j<word.length; j++) {
+            if(word[j] === letter){
+                answer[j] = letter;
+                remainingLetters--;
+            }
+        }
+    }else  {
+        lost++;
+    }
 }
 
 //takes the letter the user pressed on and pushes it into an array to display the letters the user already used. 
