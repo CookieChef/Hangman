@@ -6,6 +6,7 @@ var lost = 0;
 var lettersUsed = [];
 var livesLeft = 10;
 
+
 playGame = () => {
     document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
     document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
@@ -31,41 +32,57 @@ playGame = () => {
         console.log(answer);
         document.querySelector("#spaces").innerHTML = "Your word is:   " + answer;
     }
-
+    
     //======================Game Logic =====================================================
     document.onkeydown = () => {
         var letter = event.key.toLowerCase();
         lettersUsed.push(letter);
         updateUserLettersGuessed();
-
-        //creates a variable to hold the number of remaining letters to be guessed.
         var remainingLetters = word.length;
-        while (remainingLetters>0) {
 
-         var guess = prompt("Guess a letter");
-            if (guess == null) {
-                break;
-            }else if (guess.length !== 1) {
-                console.log("guess again, wrong input");
-            }else {
-                for (var j=0; j<word.length; j++) {
-                    if(word[j] === guess) {
-                        answer[j] = guess;
-                        remainingLetters--;
-                        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
-                        document.querySelector("#congrats").innerHTML = "Good job! You guessed " + word + " correctly";
-                    }
-                }
-            }
-        }
-        console.log("good job the answer was " + word);
-        wins++;
-    }
 
+
+        // while (livesLeft>0 && remainingLetters>0) {
+        //     for (var j=0; j<word.length; j++) {
+        //         if(word[j] === letter) {
+        //             answer[j] = letter; 
+        //             remainingLetters--;
+        //             document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
+        //         }else if (remainingLetters===0 && livesLeft>0) {
+        //             wins++;
+        //         }else {
+        //             livesLeft--;
+        //             document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
+
+        //         }
+        //     }
+        // }
+        //==================================================================================================
+    //     //creates a variable to hold the number of remaining letters to be guessed.
+    //     var remainingLetters = word.length;
+    //     while (remainingLetters>0) {
+
+    //      var guess = prompt("Guess a letter");
+    //         if (guess == null) {
+    //             break;
+    //         }else if (guess.length !== 1) {
+    //             console.log("guess again, wrong input");
+    //         }else {
+    //             for (var j=0; j<word.length; j++) {
+    //                 if(word[j] === guess) {
+    //                     answer[j] = guess;
+    //                     remainingLetters--;
+    //                     document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
+    //                     document.querySelector("#congrats").innerHTML = "Good job! You guessed " + word + " correctly";
+    //                     wins++;
+    //                 }
+    //             }
+    //         }
+    //     }
+        
     }
+}
     //======================================================================================
-
-
 
 //function that keeps tack of letters user pressed and displays them on the DOM
 updateUserLettersGuessed = () => {
