@@ -5,7 +5,7 @@ lettersUsed = [];
 
 playGame = () => {
     randomWord();
-    userKeyPress();
+   
 
 }
 
@@ -39,26 +39,12 @@ randomWord = () => {
                 var letter = event.key.toLowerCase();
                 lettersUsed.push(letter);
                 document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
-                if (word[j] === letter) {
-                    answer[j] = letter;
-                    remainingLetters--;
-                    document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
-                    console.log("remaining letters: " + remainingLetters);
-                }
+              
             }
 
         }
     } else {
         lost++;
-    }
-}
-
-//takes the letter the user pressed on and pushes it into an array to display the letters the user already used. 
-userKeyPress = () => {
-    document.onkeydown = () => {
-        var letter = event.key.toLowerCase();
-        lettersUsed.push(letter);
-        document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
     }
 }
 //variable declaration for the game scores
