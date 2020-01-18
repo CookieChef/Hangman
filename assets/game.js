@@ -7,7 +7,7 @@ lettersUsed = [];
 
 playGame = () => {
 
-    userKeyPress();
+    
     lettersUsed = [];
 
     var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
@@ -25,11 +25,15 @@ playGame = () => {
         //console.log(answer);
         document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
     }
+
+    for(var j=0; j<word.length; j++) {
+        if (word[j] === letter) {
+            answer[j] = letter;
+            document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
+        }
+    }
 }
 
-quitGame = () => {
-
-}
 
 //takes the letter the user pressed on and pushes it into an array to display the letters the user already used. 
 userKeyPress = () => {
@@ -39,6 +43,11 @@ userKeyPress = () => {
         document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
     }
 }
+
+quitGame = () => {
+
+}
+
 //variable declaration for the game scores
 // var wins = 0;
 // var lost = 0;
