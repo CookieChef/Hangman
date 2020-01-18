@@ -1,17 +1,15 @@
 console.log("Thank you for playing!");
-lettersUsed =[];
-playGame = () => {
-    // randomWord();
-    userKeyPress();
 
-}
 
-quitGame = () => {
-
-}
+lettersUsed = [];
 
 //generates a random word
-var randomWord = function () {
+
+playGame = () => {
+
+    userKeyPress();
+    lettersUsed = [];
+
     var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
         "shark", "elephant", "cow", "chicken", "fox", "flamingo", "whale", "lizard", "bear", "sheep", "bird", "wolf",
         "spider", "mosquito", "bee", "raccoon", "bat", "owl", "rabbit", "rat", "mice", "otter", "monkey", "mouse",
@@ -25,24 +23,21 @@ var randomWord = function () {
     for (var i = 0; i < word.length; i++) {
         answer[i] = " _ ";
         //console.log(answer);
-        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" ")); 
+        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
     }
+}
 
- 
+quitGame = () => {
+
 }
 
 //takes the letter the user pressed on and pushes it into an array to display the letters the user already used. 
-userKeyPress = function () {
+userKeyPress = () => {
     document.onkeydown = () => {
         var letter = event.key.toLowerCase();
         lettersUsed.push(letter);
         document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
-        
     }
-    randomWord();
-
-    
-  
 }
 //variable declaration for the game scores
 // var wins = 0;
