@@ -1,36 +1,49 @@
 console.log("Thank you for playing!");
 
-//array of words to chose from (animals)
-var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
-             "shark", "elephant", "cow", "chicken", "fox", "flamingo", "whale", "lizard", "bear", "sheep", "bird", "wolf",
-            "spider", "mosquito", "bee", "raccoon", "bat", "owl", "rabiit", "rat", "mice", "otter", "monkey", "mouse",
-             "bobcat", "salamander", "rhinoceros", "opossum", "dolphin", "lynx","zebra","iguana","anteater","hyena","koala",
-            "jellyfish","ostrich","panther","pigeon","pig","reindeer",""];
-
-//function that returns a random index from the array, that then becomes the
-//  word the user needs to guess. 
-var word = words[Math.floor(Math.random() * words.length)];
-console.log("The word to be guessed is: " + word);
-
-//sets up an array to show how many letters there are in the chosen word by using _'s
-var answer = [];
-for (var i=0; i<word.length; i++) {
-    answer[i] = " _ ";
-    console.log(answer);
-}
-
 //variable declaration for the game scores
-var wins= 0;
-var lost= 0;
-var lettersUsed= [];
+var wins = 0;
+var lost = 0;
+var lettersUsed = [];
 var livesLeft = 10;
 
-playGame =()=> {
+playGame = () => {
     document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
     document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed;
     document.querySelector("#wins").innerHTML = "You have guessed " + wins + " words right!";
     document.querySelector("#lost").innerHTML = "You have died " + lost + " times...";
-    document.querySelector("#spaces").innerHTML = "Your word is:   " + answer;
+
+    //array of words to chose from (animals)
+    var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
+        "shark", "elephant", "cow", "chicken", "fox", "flamingo", "whale", "lizard", "bear", "sheep", "bird", "wolf",
+        "spider", "mosquito", "bee", "raccoon", "bat", "owl", "rabiit", "rat", "mice", "otter", "monkey", "mouse",
+        "bobcat", "salamander", "rhinoceros", "opossum", "dolphin", "lynx", "zebra", "iguana", "anteater", "hyena", "koala",
+        "jellyfish", "ostrich", "panther", "pigeon", "pig", "reindeer", ""];
+
+    //function that returns a random index from the array, that then becomes the
+    //  word the user needs to guess. 
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log("The word to be guessed is: " + word);
+
+    //sets up an array to show how many letters there are in the chosen word by using _'s
+    var answer = [];
+    for (var i = 0; i < word.length; i++) {
+        answer[i] = " _ ";
+        console.log(answer);
+        document.querySelector("#spaces").innerHTML = "Your word is:   " + answer;
+    }
+
+}
+
+quitGame = () => {
+    livesLeft = 10;
+    lettersUsed = [];
+    wins = 0;
+    lost++;
+    document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
+    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed;
+    document.querySelector("#wins").innerHTML = "You have guessed " + wins + " words right!";
+    document.querySelector("#lost").innerHTML = "You have died " + lost + " times...";
+    playGame();
 }
 
 
