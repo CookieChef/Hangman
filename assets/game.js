@@ -37,6 +37,7 @@ userKeyPress = function () {
         var letter = event.key.toLowerCase();
         lettersUsed.push(letter);
         document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
+        
     }
     randomWord();
 
