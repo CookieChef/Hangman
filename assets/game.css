@@ -1,0 +1,17 @@
+body{
+    font-family: 'Amatic SC', cursive;
+    background-color: rgb(54, 58, 57);
+}
+#button {
+    font-size: 20px;
+}
+.card{
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+.card-header{
+    font-size: 50px;
+    background-color:rgba(197, 204, 202, 0.055) ;
+}

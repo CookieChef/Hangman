@@ -1,5 +1,10 @@
 console.log("Thank you for playing!");
 
+var wins= 0;
+var lost= 0;
+var lettersUsed= [];
+var livesLeft = 10;
+
 //array of words to chose from (animals)
 var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
              "shark", "elephant", "cow", "chicken", "fox", "flamingo", "whale", "lizard", "bear", "sheep", "bird", "wolf",
@@ -18,37 +23,37 @@ for (var i=0; i<word.length; i++) {
     console.log(answer);
 }
 
-//creates a variable to hold the number of remaining letters to be guessed.
-var remainingLetters = word.length;
+// //creates a variable to hold the number of remaining letters to be guessed.
+// var remainingLetters = word.length;
 
-//main game loop
+// //main game loop
 
-while (remainingLetters > 0) {
-    //show the player their progress
-    alert(answer.join(""));
-    //get a guess from the player
-    var guess = prompt ("guess a letter or click Cancel to stop playing");
-    //if guess is blank
-    if (guess == null) { 
-        break;
-    //if the guess is more than one letter or no letters
-    }else if (guess.length !== 1){
-        alert("Please enter a single letter.");
-    //valid guess
-    } else {
-        //update the game state with the guess
-        for (var j=0; j<word.length; j++) {
-            //if the letter they guessed is in the word at that point or index
-            if(word[j] === guess) {
-                //update the answer array with the letter they guessed at that point or index
-                answer[j] = guess;
-                //substract one from remaining letters
-                remainingLetters--;
-            }
-        }
-    }
-    //-----------end of main game loop--------------------------
-}
-//let player know the word
-alert(answer.join(" "));
-alert("Good job! The answer was: " + word);
+// while (remainingLetters > 0) {
+//     //show the player their progress
+//     alert(answer.join(""));
+//     //get a guess from the player
+//     var guess = prompt ("guess a letter or click Cancel to stop playing");
+//     //if guess is blank
+//     if (guess == null) { 
+//         break;
+//     //if the guess is more than one letter or no letters
+//     }else if (guess.length !== 1){
+//         alert("Please enter a single letter.");
+//     //valid guess
+//     } else {
+//         //update the game state with the guess
+//         for (var j=0; j<word.length; j++) {
+//             //if the letter they guessed is in the word at that point or index
+//             if(word[j] === guess) {
+//                 //update the answer array with the letter they guessed at that point or index
+//                 answer[j] = guess;
+//                 //substract one from remaining letters
+//                 remainingLetters--;
+//             }
+//         }
+//     }
+//     //-----------end of main game loop--------------------------
+// }
+// //let player know the word
+// alert(answer.join(" "));
+// alert("Good job! The answer was: " + word);
