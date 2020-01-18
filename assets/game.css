@@ -15,3 +15,7 @@ body{
     font-size: 50px;
     background-color:rgba(197, 204, 202, 0.055) ;
 }
+#scoreBoard {
+    background-color: transparent;
+    border-color: transparent;
+}
