@@ -37,34 +37,15 @@ playGame = () => {
         var letter = event.key.toLowerCase();
         lettersUsed.push(letter);
         updateUserLettersGuessed();
+
+        //creates a variable to hold the number of remaining letters to be guessed.
+        var remainingLetters = word.length;
+        console.log(remainingLetters);
         
     }
     //======================================================================================
 
 }
-
-//function that keeps tack of letters user pressed and displays them on the DOM
-updateUserLettersGuessed = ()=> {
-    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
-}
-quitGame = () => {
-    livesLeft = 10;
-    lettersUsed = [];
-    wins = 0;
-    lost++;
-    document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
-    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed;
-    document.querySelector("#wins").innerHTML = "You have guessed " + wins + " words right!";
-    document.querySelector("#lost").innerHTML = "You have died " + lost + " times...";
-    playGame();
-}
-
-
-
-
-// //creates a variable to hold the number of remaining letters to be guessed.
-// var remainingLetters = word.length;
-
 // //main game loop
 
 // while (remainingLetters > 0) {
@@ -96,3 +77,22 @@ quitGame = () => {
 // //let player know the word
 // alert(answer.join(" "));
 // alert("Good job! The answer was: " + word);
+
+//function that keeps tack of letters user pressed and displays them on the DOM
+updateUserLettersGuessed = ()=> {
+    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
+}
+
+//function that shows users their progress when guessed right
+
+quitGame = () => {
+    livesLeft = 10;
+    lettersUsed = [];
+    wins = 0;
+    lost++;
+    document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
+    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed;
+    document.querySelector("#wins").innerHTML = "You have guessed " + wins + " words right!";
+    document.querySelector("#lost").innerHTML = "You have died " + lost + " times...";
+    playGame();
+}
