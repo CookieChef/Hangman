@@ -1,7 +1,7 @@
 console.log("Thank you for playing!");
 
 //creating variables
-lettersUsed =[];
+lettersUsed = [];
 
 playGame = () => {
     randomWord();
@@ -28,19 +28,27 @@ randomWord = () => {
     for (var i = 0; i < word.length; i++) {
         answer[i] = " _ ";
         // console.log(answer);
-        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" ")); 
+        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
     }
 
     var remainingLetters = word.length;
     //console.log("remaining letters to be guessed: " + remainingLetters);
-    if (remainingLetters>0 && remainingLetters !== 0) {
-        for(var j=0; j<word.length; j++) {
-            if(word[j] === letter){
-                answer[j] = letter;
-                remainingLetters--;
+    if (remainingLetters > 0 && remainingLetters !== 0) {
+        for (var j = 0; j < word.length; j++) {
+            document.onkeydown = () => {
+                var letter = event.key.toLowerCase();
+                lettersUsed.push(letter);
+                document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
+                if (word[j] === letter) {
+                    answer[j] = letter;
+                    remainingLetters--;
+                    document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
+                    console.log("remaining letters: " + remainingLetters);
+                }
             }
+
         }
-    }else  {
+    } else {
         lost++;
     }
 }
