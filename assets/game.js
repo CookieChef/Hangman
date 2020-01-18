@@ -15,7 +15,7 @@ playGame = () => {
     //array of words to chose from (animals)
     var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
         "shark", "elephant", "cow", "chicken", "fox", "flamingo", "whale", "lizard", "bear", "sheep", "bird", "wolf",
-        "spider", "mosquito", "bee", "raccoon", "bat", "owl", "rabiit", "rat", "mice", "otter", "monkey", "mouse",
+        "spider", "mosquito", "bee", "raccoon", "bat", "owl", "rabbit", "rat", "mice", "otter", "monkey", "mouse",
         "bobcat", "salamander", "rhinoceros", "opossum", "dolphin", "lynx", "zebra", "iguana", "anteater", "hyena", "koala",
         "jellyfish", "ostrich", "panther", "pigeon", "pig", "reindeer", ""];
 
@@ -41,19 +41,25 @@ playGame = () => {
         //creates a variable to hold the number of remaining letters to be guessed.
         var remainingLetters = word.length;
         while (remainingLetters>0) {
-         console.log(answer.join(" "));
 
-         var guess = letter;
-           
+         var guess = prompt("Guess a letter");
+            if (guess == null) {
+                break;
+            }else if (guess.length !== 1) {
+                console.log("guess again, wrong input");
+            }else {
                 for (var j=0; j<word.length; j++) {
                     if(word[j] === guess) {
                         answer[j] = guess;
                         remainingLetters--;
+                        document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
+                        document.querySelector("#congrats").innerHTML = "Good job! You guessed " + word + " correctly";
                     }
                 }
-            
+            }
         }
-        
+        console.log("good job the answer was " + word);
+        wins++;
     }
 
     }
