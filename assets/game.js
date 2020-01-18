@@ -8,7 +8,7 @@ var livesLeft = 10;
 
 playGame = () => {
     document.querySelector("#livesLeft").innerHTML = "You have " + livesLeft + " lives left!";
-    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed;
+    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
     document.querySelector("#wins").innerHTML = "You have guessed " + wins + " words right!";
     document.querySelector("#lost").innerHTML = "You have died " + lost + " times...";
 
@@ -33,11 +33,20 @@ playGame = () => {
     }
 
     //======================Game Logic =====================================================
-
+    document.onkeydown =()=> {
+        var letter = event.key.toLowerCase();
+        lettersUsed.push(letter);
+        updateUserLettersGuessed();
+        
+    }
     //======================================================================================
 
 }
 
+//function that keeps tack of letters user pressed and displays them on the DOM
+updateUserLettersGuessed = ()=> {
+    document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
+}
 quitGame = () => {
     livesLeft = 10;
     lettersUsed = [];
