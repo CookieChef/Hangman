@@ -33,53 +33,36 @@ playGame = () => {
     }
 
     //======================Game Logic =====================================================
-    document.onkeydown =()=> {
+    document.onkeydown = () => {
         var letter = event.key.toLowerCase();
         lettersUsed.push(letter);
         updateUserLettersGuessed();
 
         //creates a variable to hold the number of remaining letters to be guessed.
         var remainingLetters = word.length;
-        console.log(remainingLetters);
+        while (remainingLetters>0) {
+         console.log(answer.join(" "));
+
+         var guess = letter;
+           
+                for (var j=0; j<word.length; j++) {
+                    if(word[j] === guess) {
+                        answer[j] = guess;
+                        remainingLetters--;
+                    }
+                }
+            
+        }
         
+    }
+
     }
     //======================================================================================
 
-}
-// //main game loop
 
-// while (remainingLetters > 0) {
-//     //show the player their progress
-//     alert(answer.join(""));
-//     //get a guess from the player
-//     var guess = prompt ("guess a letter or click Cancel to stop playing");
-//     //if guess is blank
-//     if (guess == null) { 
-//         break;
-//     //if the guess is more than one letter or no letters
-//     }else if (guess.length !== 1){
-//         alert("Please enter a single letter.");
-//     //valid guess
-//     } else {
-//         //update the game state with the guess
-//         for (var j=0; j<word.length; j++) {
-//             //if the letter they guessed is in the word at that point or index
-//             if(word[j] === guess) {
-//                 //update the answer array with the letter they guessed at that point or index
-//                 answer[j] = guess;
-//                 //substract one from remaining letters
-//                 remainingLetters--;
-//             }
-//         }
-//     }
-//     //-----------end of main game loop--------------------------
-// }
-// //let player know the word
-// alert(answer.join(" "));
-// alert("Good job! The answer was: " + word);
 
 //function that keeps tack of letters user pressed and displays them on the DOM
-updateUserLettersGuessed = ()=> {
+updateUserLettersGuessed = () => {
     document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
 }
 
