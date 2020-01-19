@@ -7,7 +7,7 @@ lettersUsed = [];
 
 playGame = () => {
 
-    
+    userKeyPress();
     lettersUsed = [];
 
     var words = ["cat", "dog", "horse", "fish", "piranha", "turtle", "snake", "lion", "tiger", "panda", "aligator",
@@ -25,13 +25,6 @@ playGame = () => {
         //console.log(answer);
         document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
     }
-
-    for(var j=0; j<word.length; j++) {
-        if (word[j] === letter) {
-            answer[j] = letter;
-            document.querySelector("#spaces").innerHTML = "Your word is:   " + (answer.join(" "));
-        }
-    }
 }
 
 
@@ -42,6 +35,7 @@ userKeyPress = () => {
         lettersUsed.push(letter);
         document.querySelector("#lettersUsed").innerHTML = "You guessed letters: " + lettersUsed.join(", ");
     }
+    
 }
 
 quitGame = () => {
