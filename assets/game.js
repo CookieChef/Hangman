@@ -59,13 +59,8 @@ playGame = () => {
         var remainingLetters = word.length;
         while (remainingLetters>0) {
 
-        
          //var guess = prompt("Guess a letter");
-            if (letter == null) {
-                break;
-            }else if (letter.length !== 1) {
-                console.log("guess again, wrong input");
-            }else {
+            if (remainingLetters>0 && remainingLetters!== 0) {
                 for (var j=0; j<word.length; j++) {
                     if(word[j] === letter) {
                         answer[j] = letter;
