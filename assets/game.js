@@ -49,13 +49,15 @@ playGame = () => {
                     if (word[j] === guess) {
                         answer[j] = guess;
                         remainingLetters--;
+                        document.querySelector("#spaces").innerHTML = "You guessed:   " + (answer.join(" "));
+                        document.querySelector("#congrats").innerHTML = "Press play to guess a new word!";
                     }
                 }
             }
         
     }
     alert(answer.join(" "));
-    alert("Amazing! The answer was " + word);
+    // alert("Amazing! The answer was " + word);
 
     //======================Game Logic =====================================================
 //     document.onkeydown = () => {
