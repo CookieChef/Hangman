@@ -10,7 +10,7 @@ Once the game starts the user has to guess a randomly selected word; the hint is
 
 ## Coding:
 
-    This game uses prompts and alerts for the basic logic. We also used a function as an event listener to initiate the game logic. The game logic uses if/else statements nested inside a while statement. For the full code look at the repository.
+This game uses prompts and alerts for the basic logic. We also used a function as an event listener to initiate the game logic. The game logic uses if/else statements nested inside a while statement. For the full code look at the repository.
 
 ### Special thanks to:
 
