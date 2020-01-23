@@ -30,7 +30,7 @@ playGame = () => {
     var answer = [];
     for (var i = 0; i < word.length; i++) {
         answer[i] = " _ ";
-        console.log(answer);
+        //console.log(answer);
         //document.querySelector("#spaces").innerHTML = "Your word is:   " + answer;
     }
 
@@ -50,7 +50,7 @@ playGame = () => {
                         answer[j] = guess;
                         remainingLetters--;
                         document.querySelector("#spaces").innerHTML = "You guessed:   " + (answer.join(" "));
-                        document.querySelector("#congrats").innerHTML = "Press play to guess a new word!";
+                        document.querySelector("#congrats").innerHTML = "Press 'play' to guess a new word!";
                     }
                 }
             }
